@@ -32,6 +32,11 @@ object Gigaword4Ingester {
       uuid = uf.next()
       typ = "newswire"
       text = xml
+      metadata = new AnnotationMetadata {
+        kBest = 1
+        tool = "Omnivore"
+        timestamp = 0
+      }
       sectionList = {
         val headlineSpan = Util.spanOf(headline, xml)
         val headlineSection = new Section {
