@@ -1,14 +1,15 @@
 package me.tongfei.omnivore.gigaword4
 
 import me.tongfei.omnivore.util._
-import java.nio.file._
-import edu.jhu.hlt.concrete.uuid._
 import me.tongfei.granite._
 import me.tongfei.granite.io._
+import java.nio.file._
+import edu.jhu.hlt.concrete.uuid._
 import scala.collection.JavaConversions._
 import scala.xml._
 
 /**
+ * Ingests files whose name follows the pattern "LTW_ENG_20070401.0153.LDC2009T13.xml".
  * @author Tongfei Chen
  */
 object Gigaword4Ingester {
