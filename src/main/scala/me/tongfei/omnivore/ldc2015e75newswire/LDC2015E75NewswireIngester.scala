@@ -1,26 +1,28 @@
-package me.tongfei.omnivore.gigaword4
+package me.tongfei.omnivore.ldc2015e75newswire
 
 import me.tongfei.omnivore.util._
 import me.tongfei.granite._
 import me.tongfei.granite.io._
 import java.nio.file._
+
 import edu.jhu.hlt.concrete.uuid._
+
 import scala.collection.JavaConversions._
 import scala.xml._
 
 /**
- * Ingests files whose name follows the pattern "LTW_ENG_20070401.0153.LDC2009T13.xml".
+ * Ingests files whose name follows the pattern "ENG_NW_001001_20150404_F0000000.xml".
  * @author Tongfei Chen
  */
-object Gigaword4Ingester {
+object LDC2015E75NewswireIngester {
 
   def ingest(xml: String): Communication = {
 
     val doc = XML.loadString(xml)
-    val docid = (doc \ "DOCID").head.text.trim
-    val dateTime = (doc \ "DATETIME").head.text.trim
-    val headline = (doc \ "BODY" \ "HEADLINE").head.text.trim
-    val paragraphs = (doc \ "BODY" \ "TEXT" \ "P") map { _.text.trim }
+    val docid = doc.attributes.get("id").head.text.trim
+    val dateTime = (doc \ "DATE_TIME").head.text.trim
+    val headline = (doc \ "HEADLINE").head.text.trim
+    val paragraphs = (doc \ "TEXT" \ "P") map { _.text.trim }
 
     val uf = new AnalyticUUIDGeneratorFactory().create()
 
