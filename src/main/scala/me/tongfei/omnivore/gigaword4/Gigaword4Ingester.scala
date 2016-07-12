@@ -24,6 +24,8 @@ object Gigaword4Ingester {
 
     val uf = new AnalyticUUIDGeneratorFactory().create()
 
+    val sd = new SpanDetector(xml)
+
     new Communication {
       id = docid
       uuid = uf.next()
@@ -35,14 +37,14 @@ object Gigaword4Ingester {
         timestamp = 0
       }
       sectionList = {
-        val headlineSpan = Util.spanOf(headline, xml)
+        val headlineSpan = sd.spanOf(headline)
         val headlineSection = new Section {
           uuid = uf.next()
           kind = "headline"
           textSpan = new TextSpan(headlineSpan._1, headlineSpan._2)
         }
         val paragraphSections = paragraphs map { p =>
-          val paragraphSpan = Util.spanOf(p, xml)
+          val paragraphSpan = sd.spanOf(p)
           new Section {
             uuid = uf.next()
             kind = "passage"
