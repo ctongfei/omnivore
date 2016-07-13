@@ -12,7 +12,7 @@ class SpanDetector(source: String) {
     val res = (index + i, index + i + pattern.length)
     if (i != -1) // the pattern is actually found
       index += i + pattern.length
-    (index + i, index + i + pattern.length)
+    res
   }
 
 }
