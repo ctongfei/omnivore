@@ -1,10 +1,12 @@
 package me.tongfei.omnivore.gigaword4
 
 import me.tongfei.omnivore.util._
-import me.tongfei.granite._
-import me.tongfei.granite.io._
+import edu.jhu.hlt.granite._
 import java.nio.file._
+
 import edu.jhu.hlt.concrete.uuid._
+import edu.jhu.hlt.granite.io._
+
 import scala.collection.JavaConversions._
 import scala.xml._
 
@@ -38,12 +40,12 @@ object Gigaword4Ingester {
       }
       sectionList = {
         val headlineSpan = sd.spanOf(headline)
-        val headlineSection = new Section {
+        val headlineSection: Section = new Section {
           uuid = uf.next()
           kind = "headline"
           textSpan = new TextSpan(headlineSpan._1, headlineSpan._2)
         }
-        val paragraphSections = paragraphs map { p =>
+        val paragraphSections: Seq[Section] = paragraphs map { p =>
           val paragraphSpan = sd.spanOf(p)
           new Section {
             uuid = uf.next()
@@ -60,7 +62,7 @@ object Gigaword4Ingester {
   def main(args: Array[String]): Unit = {
     val input = Files.readAllLines(Paths.get(args(0))).mkString("\n")
     val comm = ingest(input)
-    ConcreteIO.save(args(1))(comm)
+    ConcreteIO.save(comm)(args(1))
   }
 
 }
