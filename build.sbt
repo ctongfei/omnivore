@@ -1,17 +1,25 @@
 name := "omnivore"
 organization := "me.tongfei"
-version := "0.5.0"
+version := "0.7.0"
 
 isSnapshot := true
 
 scalaVersion := "2.11.8"
 
+
+val artifactory = "http://sparsity.ad.hltcoe.jhu.edu:8081/artifactory"
+
+resolvers += "Artifactory Realm" at "http://sparsity.ad.hltcoe.jhu.edu:8081/artifactory/maven-repo"
+resolvers += "Artifactory Realm" at "http://localhost:7727/artifactory/maven-repo"
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies += "me.tongfei" %% "poly-io" % "0.2.1"
-libraryDependencies += "me.tongfei" % "progressbar" % "0.4.1"
-libraryDependencies += "me.tongfei" %% "granite" % "4.10.7"
+libraryDependencies += "me.tongfei" % "progressbar" % "0.5.1"
+libraryDependencies += "me.tongfei" %% "granite" % "4.11.0"
 libraryDependencies += "org.scala-lang.modules" %% "scala-xml" % "1.0.5"
+libraryDependencies += "io.circe" %% "circe-core" % "0.6.0"
+libraryDependencies += "io.circe" %% "circe-generic" % "0.6.0"
+libraryDependencies += "io.circe" %% "circe-parser" % "0.6.0"
 libraryDependencies += "com.lihaoyi" %% "fastparse" % "0.3.7"
 
 assemblyMergeStrategy in assembly := {
@@ -19,3 +27,13 @@ assemblyMergeStrategy in assembly := {
   case "english.sutime.txt" => MergeStrategy.last
   case x => MergeStrategy.defaultMergeStrategy(x)
 }
+
+
+publishTo := {
+  if (isSnapshot.value)
+    Some("snapshots" at artifactory + "/libs-snapshot-local")
+  else
+    Some("releases"  at artifactory + "/libs-release-local")
+}
+
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
