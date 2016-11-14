@@ -7,7 +7,7 @@ import poly.io.Local._
 /**
  * @author Tongfei Chen
  */
-object SQuADIngester extends App {
+object SQuADIngester {
 
   def ingest(fn: String) = {
     val json = decode[SQuAD](File(fn).slurp)
