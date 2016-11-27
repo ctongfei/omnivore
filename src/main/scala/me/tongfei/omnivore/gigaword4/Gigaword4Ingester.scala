@@ -40,12 +40,12 @@ object Gigaword4Ingester {
       }
       sectionList = {
         val headlineSpan = sd.spanOf(headline)
-        val headlineSection: Section = new Section {
+        val headlineSection = new Section {
           uuid = uf.next()
           kind = "headline"
           textSpan = new TextSpan(headlineSpan._1, headlineSpan._2)
         }
-        val paragraphSections: Seq[Section] = paragraphs map { p =>
+        val paragraphSections = paragraphs map { p =>
           val paragraphSpan = sd.spanOf(p)
           new Section {
             uuid = uf.next()
