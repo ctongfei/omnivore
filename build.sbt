@@ -1,6 +1,6 @@
 name := "omnivore"
 organization := "me.tongfei"
-version := "0.7.2"
+version := "0.7.3"
 
 isSnapshot := true
 
