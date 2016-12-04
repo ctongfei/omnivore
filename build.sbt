@@ -1,6 +1,6 @@
 name := "omnivore"
 organization := "me.tongfei"
-version := "0.7.1"
+version := "0.7.2"
 
 isSnapshot := true
 
@@ -13,9 +13,10 @@ resolvers += "Artifactory Realm" at "http://sparsity.ad.hltcoe.jhu.edu:8081/arti
 resolvers += "Artifactory Realm" at "http://localhost:7727/artifactory/maven-repo"
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-libraryDependencies += "me.tongfei" %% "poly-io" % "0.3.1-SNAPSHOT"
+
+libraryDependencies += "edu.jhu.hlt" %% "granite" % "4.11.2"
+libraryDependencies += "me.tongfei" %% "poly-io" % "0.3.1"
 libraryDependencies += "me.tongfei" % "progressbar" % "0.5.1"
-libraryDependencies += "me.tongfei" %% "granite" % "4.11.0"
 libraryDependencies += "org.scala-lang.modules" %% "scala-xml" % "1.0.5"
 libraryDependencies += "io.circe" %% "circe-core" % "0.6.0"
 libraryDependencies += "io.circe" %% "circe-generic" % "0.6.0"
