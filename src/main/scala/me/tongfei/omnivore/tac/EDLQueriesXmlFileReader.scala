@@ -23,6 +23,7 @@ object EDLQueriesXmlFileReader {
     val b = SortedMap.newBuilder[String, EDLTrainingQuery]
     queries foreach b.+=
     b.result()
+
   }
 
 }
