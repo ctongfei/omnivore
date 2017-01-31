@@ -14,6 +14,11 @@ me.tongfei.omnivore.squad.SQuADIngester
 me.tongfei.omnivore.tac.EDLKnowledgeBaseLinkTabFileReader
 me.tongfei.omnivore.tac.EDLQueriesXmlFileReader
 
+me.tongfei.omnivore.treceval.TrecEvalReferenceFileReader
+me.tongfei.omnivore.treceval.TrecEvalResultFileReader
+me.tongfei.omnivore.treceval.TrecEvalReferenceFileWriter
+me.tongfei.omnivore.treceval.TrecEvalResultFileWriter
+
 me.tongfei.omnivore.wikiqa.WikiQAIngester
 
 ```
