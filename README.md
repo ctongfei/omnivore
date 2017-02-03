@@ -2,8 +2,13 @@
 Extra ingesters for various NLP resources
 
 ```scala
+me.tongfei.omnivore.basic.WordSetReader
+
+me.tongfei.omnivore.embedding.WordEmbeddingsReader
 
 me.tongfei.omnivore.gigaword4.Gigaword4Ingester
+
+me.tongfei.omnivore.idf.IdfFileReader
 
 me.tongfei.omnivore.ldc2015e75newswire.LDC2015E75NewswireIngester
 
