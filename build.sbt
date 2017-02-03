@@ -1,6 +1,6 @@
 name := "omnivore"
 organization := "me.tongfei"
-version := "0.9.0"
+version := "0.10.0"
 
 isSnapshot := true
 scalaVersion := "2.11.8"
