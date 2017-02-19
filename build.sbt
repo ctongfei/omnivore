@@ -1,10 +1,9 @@
 name := "omnivore"
 organization := "me.tongfei"
-version := "0.10.0"
+version := "0.11.0"
 
 isSnapshot := true
 scalaVersion := "2.11.8"
-
 
 val artifactory = "http://sparsity.ad.hltcoe.jhu.edu:8081/artifactory"
 

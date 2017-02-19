@@ -25,3 +25,18 @@ case class EDLTrainingQuery(
   begin: Int,
   end: Int
 )
+
+case class TEDLKnowledgeBaseLink(
+  queryId: String,
+  name: String,
+  docId: String,
+  begin: Int,
+  end: Int,
+  entityId: String,
+  entityType: String,
+  mentionType: String,
+  score: Double,
+  isWebSearch: Boolean,
+  isWikiText: Boolean,
+  isUnknown: Boolean
+)
